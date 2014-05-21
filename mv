@@ -1,0 +1,24 @@
+mv (terminal command)
+
+The “mv” command is used to move files or directories from one location to another in the file system.
+
+The basic syntax for the “mv” command is:
+
+mv [source] [target]
+
+source = file_name.file_type / directory_name
+target = file_name.file_type / directory_name
+
+for example:
+
+mv example_file ~/example_file
+
+The "mv" command can also be used to rename files or directories:
+
+mv example_file example_file_2
+
+Note that using the “mv” command requires having “write” permission for both the source and the target files/directories.
+
+If  a file is moved to a location where there already is another file with the same name, the latter will be over-written by the former (unless the -n flag is used which will prevent over-writing; the -f flag can be used to “force” over-writing without asking the user for confirmation). 
+
+The -v (verbose) flag can be used to show the file/directory after the mv command is executed.
