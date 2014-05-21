@@ -1,0 +1,34 @@
+grep (terminal command) -
+
+The “grep command” is used for searching the content of one or more files by matching them with user specified content, including regular expressions.
+
+The basic syntax is as follows:
+
+grep “string_to_look_for” text_file_to_look_in.txt
+
+
+The -r flag can be used to search for matching patterns in subfolders. for example:
+
+grep -r Apple ~/Documents/* 
+
+will find “Apple” in any file in any subfolder of ~/Documents
+
+
+The -l flag can be used to limit the search to file names only, for example:
+
+grep -l Orange
+
+will only return the files who’s name contains “Orange” in the location where the command was executed.
+
+The -i flag makes the grep search case-insensitive, for example:
+
+grep -i rain 
+
+will return matching results for “rain”, “Rain”, “RAIN”, etc.
+
+
+
+
+
+
+
