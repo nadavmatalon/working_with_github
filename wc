@@ -1,0 +1,26 @@
+wc (terminal command)
+
+Genrally speaking, the “wc” command returns the number of characters, words, or lines in a specified file.
+
+(a line is defined as a string which ends with the “ new line” (\n) delimiter).
+
+To count the number of characters in a file:
+
+wc -c [text_file]
+
+To count the number of words in a file:
+
+wc -w [text_file]
+
+To count the number of lines in a file:
+
+wc -l [text_file]
+
+The “wc” can also be used in conjunction with the “ls” (list) command to count the number of files (or files of a particular kind) in a directory.
+
+For example, to count the number of txt files in a directory:
+
+ls -l *.txt | wc -l
+
+
+
