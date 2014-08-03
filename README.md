@@ -1,4 +1,4 @@
-<h2>Working with the  Github </h2>
+<h2>Working with Github</h2>
 
 <h3>Makers | Week 3 | Challenge</h3>
 
