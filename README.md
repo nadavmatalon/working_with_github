@@ -1,111 +1,221 @@
+Create a directory where you'll be keeping all your projects (~/Projects, ~/dev, ~/coding or something like this)
 
-<h2>Working with the Command Line</h2>
+(in the “home” directory)
 
-<h3>Makers | Week 1 | Challenge</h3>
+mkdir ~/dev
 
+*Create a directory "command-line" in your projects folder
 
-Instructions & Answers:
+(in the “home” directory)
 
-Change into the temporary directory
-
-cd /tmp
-
-Using one command, create a directory structure "my/private/files" 
-
-mkdir -p my/private/files
+mkdir ~/dev/command-line
 
 
-Using one command, create a directory structure "my/public/files"
+Initialise a git repository inside it
 
-mkdir -p my/public/files
+(in the “home” directory)
 
+cd dev/command-line
 
-Create an empty file 't-vars.env' in my/private/files
+git init
+ 
 
-(in the "/tmp/my/private/files/" directory)
+Create a README file with the following content: "This is a list of some of the most useful shell commands"
 
-touch t-vars.env
+(in the “command-line” directory)
 
+touch README.md
 
-Using command-line only add the line "List of env vars that begin with T" to the file, 
-make sure it ends with a newline
-
-(in the "/tmp/my/private/files/" directory)
-
-echo "List of env vars that begin with T" >> t-vars.env
-
-(to see content: less t-vars.env)
+echo “This is a list of some of the most useful shell commands” >> README.md
 
 
-List all env variables that begin with "T" (hint: you'll need a regex that includes 
-the marker of the start of the line) and append them to the end of the file
+Add it to the repo and commit it
 
-(in the "/tmp/my/private/files/" directory)
+git add README.md
 
-env | grep "^T" >> t-vars.env
-
-
-export a new variable TESTING_MAKERS=working in such a way that it is still available when you open a new shell
-
-export TESTING_MAKERS=working
-
-echo "export TESTING_MAKERS=working" >> ~/.bash_profile
+git commit -m “first commit of README.md file”
 
 
-open a new terminal window, check that a new variable is available
 
-echo $TESTING_MAKERS
-=> working
+Create a repo with the same name on Github
 
 
-output the count of the variables that begin with T to a new file my/public/files/t-vars.count, e.g. "Overall count: 5" (hint: you'll need to use 'command substitution' in bash)
-
-(in “/tmp" directory)
-
-echo Overall count: `env | grep "^T" | wc -l` >> my/public/files/t-vars.count
+(created “command-line” repo in under my login in github website)
 
 
-change the permissions of the my/private/files/t-vars.env to make sure that only the owner can read and write the file
+Create a remote in your local repo called "origin" pointing to your Github repo
 
-(read & write, but not execute)
-
-(in "/tmp/my/private/files" directory)
-
-chmod 600 t-vars.env
-
-(check: ls -l)
-
-change the permissions of the my/private/files directory to make sure that only the owner can change into it
-
-(in the "private" directory)
-
-chmod 700 files
-
-(check: ls -l)
-
-give read and write permissions to all users on my/public/files/t-vars.count
-
-(read & write, but not execute)
-
-(in "files" directory)
-
-chmod 666 t-vars.count
-
-(check: ls -l)
+git remote add origin https://github.com/nadavmatalon/command-line.git
 
 
-create another file my/public/files/text-files-count.txt and output the number of text files in your home directory (recursively)  into that file
+Verify that the remote actually exists and points to the right location
 
-(in the "home" directory)
-
-cd ~ 
-
-find . -name *.txt | wc -w >> /tmp/my/files/text-files-count.txt
-
-(same result with quotes: find . -name “*.txt” | wc -w >> /tmp/my/files/text-files-count.txt)
+git remote -v
 
 
-list all env variables sorted alphabetically and show the top 3 lines
+Push local changes to Github
 
-env | sort -f | head -n3
+git push -u origin master
+
+
+Verify that you can now see your repository on Github (and note how Github displays your README file by default as the project description)
+
+(check)
+
+
+Now create a file called "mv" in your local repo. 
+
+touch mv
+
+
+Commit it locally and push the changes to Github.
+
+git add mv
+
+git commit -m “first commit of mv file”
+
+git push -u origin master
+
+
+Go to Github and find that file there. 
+
+(found)
+
+
+Edit it by putting the description of the "mv" shell command inside, in your own words. Don't copy the man page, just write what you know about the "mv" command. Commit the changes on Github.
+
+(description written in file in Github)
+
+
+Pull the changes from Github. 
+
+git pull
+
+
+Cat the file locally to verify that you pulled the change, so the file is not empty anymore.
+
+(checked)
+
+
+Do the same for commands "cp", "grep", "wc" and "ps". Use meaningful commit messages that describe well what you are doing.
+
+touch cp
+
+git add cp
+
+git commit -m “first commit of cp file”
+
+git push
+
+(edited cp in github and committed changes there) 
+
+git pull
+
+cat cp
+
+——
+
+touch grep
+
+git add grep
+
+git commit -m “first commit of grep file”
+
+git push
+
+(edited grep in github and committed changes there)
+
+git pull
+
+cat grep
+
+——
+
+
+touch wc
+
+git add wc
+
+git commit -m “first commit of wc file”
+
+git push
+
+(edited wc in github and committed changes there) 
+
+git pull
+
+cat wc
+
+——
+
+touch ps
+
+git add ps
+
+git commit -m “first commit of ps file”
+
+git push
+
+(edited ps in github and committed changes there) 
+
+git pull
+
+cat ps
+
+
+
+You should have 11 commits by now: the initial one plus two commits (one local and one done on github) for every command.
+
+Verify this by viewing the commit log locally and on Github. Both logs should be in sync. Make sure they are in sync before proceeding to the next step!
+
+
+Delete the local repository by removing the folder
+
+rm -rf command-line
+
+(-rf means force remove recessively, i.e. even if has content and all sub-folders)
+
+
+Go to your repo on Github, copy the clone url and clone the repository locally, recreating it
+
+(copied clone url from github:
+https://github.com/nadavmatalon/command-line.git)
+
+in terminal (small variations):
+
+git clone git://github.com/nadavmatalon/command-line.git
+
+Look at the list of commits. Check that there are no missing commits. Your repo should be in exactly the same as it was before you deleted it.
+
+in terminal:
+
+git hist
+
+Now delete one of the files in the local repository and commit the change.
+
+touch test_file
+
+git add test_file
+
+git commit -m “test_file for testing deleting file on local and pushing to master”
+
+(note that:
+
+had to  re-establish remote url link between master and origin - using:
+
+git remote set-url origin https://github.com/nadavmatalon/command-line.git
+
+git remote set-url origin [get the SSH clone url from git hub]
+
+
+
+git push -u origin master
+
+
+Push to Github and verify that you don't see the deleted file there.
+
+git commit -am “pushing change of deleting test file (using -am)”
+
+git push -u origin master
+
 
