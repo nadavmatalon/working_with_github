@@ -1,3 +1,8 @@
+<h2>Working with the  Github </h2>
+
+<h3>Makers | Week 3 | Challenge</h3>
+
+
 Create a directory where you'll be keeping all your projects (~/Projects, ~/dev, ~/coding or something like this)
 
 (in the “home” directory)
